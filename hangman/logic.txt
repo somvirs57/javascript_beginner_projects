@@ -1,0 +1,6 @@
+Guess the word using single words as input
+get some number of lives - 5
+get a hint 
+reset button - to reset the word and lives and score
+pop up at last to show win or lose
+each wrong guess will delete the alphabet from list and decrease a live
