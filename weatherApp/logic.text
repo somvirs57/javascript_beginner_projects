@@ -1,0 +1,6 @@
+1. Get html for weather card from a location:
+    https://blog.avada.io/css/weather-widgets/
+2. Get a weather api: https://openweathermap.org/
+3. use promise to get api response and put data to the html containers
+4. Bonus: Use your own location for the weather 
+    - use location iq for reverse geolocation

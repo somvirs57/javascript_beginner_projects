@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <h2 class="heading">Javascript Weather App</h2>
+    <p class="err-txt"></p>
+    <div class="widget query">
+      <input type="text" placeholder="Enter a city" class="city-input" />
+      <button class="search-btn">Search</button>
+      <button class="search-self">My Location</button>
+    </div>
+    <div class="widget hidden main-box">
+      <div class="left-panel panel">
+        <div class="date">Monday, 20 Aug 2018</div>
+        <div class="city">Mumbai</div>
+        <div class="temp">
+          <img
+            src="https://s5.postimg.cc/yzcm7htyb/image.png"
+            alt=""
+            width="60"
+            class="wicon"
+          />
+          <span class="cel">00</span>
+          &deg;
+        </div>
+        <div>
+          <p class="w-info"></p>
+        </div>
+      </div>
+      <div class="right-panel panel">
+        <img
+          src="https://www.pngkit.com/png/full/873-8739577_city-vector-png-city-vector-png-free.png"
+          alt=""
+          width="140"
+          height="120"
+        />
+      </div>
+    </div>
+  </body>
+</html>
