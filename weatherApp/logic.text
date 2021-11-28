@@ -4,3 +4,4 @@
 3. use promise to get api response and put data to the html containers
 4. Bonus: Use your own location for the weather 
     - use location iq for reverse geolocation
+    -Get a reverse weather api: https://locationiq.com/

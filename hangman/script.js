@@ -72,7 +72,7 @@ const showNotif = function (msg) {
   notif.classList.remove('hidden');
   notifSpan.textContent = select_word;
   notifContent.textContent = `You ${msg}`;
-  lives = 3;
+  // lives = 3;
 };
 
 // decrease life

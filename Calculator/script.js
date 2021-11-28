@@ -34,6 +34,7 @@ opBtns.forEach(btn => {
   });
 });
 
+
 // event listener for AC button
 acBtn.addEventListener('click', function () {
   inputArea.value = '0';

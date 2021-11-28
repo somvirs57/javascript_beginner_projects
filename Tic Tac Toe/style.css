@@ -1,0 +1,68 @@
+body {
+  color: rgb(255, 255, 255, 0.87);
+  /* opacity: 87%; */
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+}
+p {
+  width: fit-content;
+  margin: 0.6rem 0;
+}
+.game-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header {
+  color: red;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+.btn-div {
+  width: 14rem;
+  gap: 5px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn {
+  height: 4rem;
+  width: 4rem;
+  font-size: xx-large;
+}
+.player-X {
+  color: red !important;
+}
+.player-O {
+  color: blue !important;
+}
+.active-player-label {
+  color: rgb(100, 200, 20, 0.87);
+}
+.active-player {
+  color: rgb(255, 30, 30, 0.87);
+}
+.notif {
+  position: absolute;
+  background-color: aliceblue;
+  color: black;
+  padding: 20px 20px;
+  height: 10rem;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  top: 35vh;
+}
+.hidden {
+  display: none;
+}
+.reset-btn,
+.play-agn-btn {
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+}

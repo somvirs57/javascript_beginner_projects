@@ -1,0 +1,6 @@
+2 players play one after another to put 'X' or 'O'.
+player with X in straight or diagonal line wins.
+reset btn to reset the game 
+a div to show game over
+different colors for both players
+players to switch after each chance

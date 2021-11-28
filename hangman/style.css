@@ -47,9 +47,9 @@ body {
 
 .notif {
   position: absolute;
-  top: 20%;
-  left: 0%;
-  transform: translate(50%, 50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: #fc6c85;
   width: 20rem;
   padding: 20px 10px;

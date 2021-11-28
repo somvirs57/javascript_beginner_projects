@@ -9,8 +9,8 @@ const searchBtn = document.querySelector('.search-btn');
 const searchSelf = document.querySelector('.search-self');
 const errText = document.querySelector('.err-txt');
 
-const WeatherApi = '12345test';
-const revGeoApi = '12345test';
+const WeatherApi = '4a2e3b074988d379d7ffc15391cfc8d3';
+const revGeoApi = 'pk.0e04b54883419407702c409bb8cc71b2';
 
 const convertKelvin = function (temp) {
   const number = parseFloat(temp);
@@ -50,6 +50,7 @@ const getCityWeather = async function (input) {
   }
 };
 
+
 searchBtn.addEventListener('click', function () {
   const cityQuery = cityInput.value;
 
@@ -65,10 +66,12 @@ cityInput.addEventListener('keydown', function (e) {
 
 const reverseGeo = async function (lat, lon) {
   //   console.log(lat, lon);
-  const revgeo = `https://us1.locationiq.com/v1/reverse.php?key=pk.${revGeoApi}&lat=${lat}&lon=${lon}&format=json`;
+  const revgeo = `https://us1.locationiq.com/v1/reverse.php?key=${revGeoApi}&lat=${lat}&lon=${lon}&format=json`;
+  console.log(revgeo);
   const res = await fetch(revgeo);
   const data = await res.json();
-  const town = data.address.town;
+  const town = data.address.city;
+  console.log(data);
   getCityWeather(town);
 };
 
