@@ -1,0 +1,6 @@
+user able to add a task to a list
+check it out (strike) once task is finished
+delete a task
+relevant errors to prevent empty tasks and other error prone uses
+
+html template: https://bbbootstrap.com/snippets/awesome-todo-list-template-25095891

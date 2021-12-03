@@ -1,0 +1,87 @@
+body {
+  color: rgb(255, 255, 255, 0.87);
+  /* opacity: 87%; */
+  background-color: #f9f9fa;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  border: 1px solid #d2d2dc;
+  color: black;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  /* box-shadow: rgb(0, 0, 0, 0.87); */
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+.card-head {
+  margin-bottom: 5px;
+}
+.add-task-form {
+  width: 100%;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+.add-task-form input {
+  width: 75%;
+}
+.add-task-form button {
+  width: 20%;
+  background-color: #007bff;
+  border: none;
+  margin: 0;
+  color: white;
+  font-weight: bolder;
+}
+#addTaskBtn:hover,
+.task-dlt-btn:hover {
+  cursor: pointer;
+}
+.add-task-form input,
+.add-task-form button {
+  height: 2rem;
+}
+.task-dlt-btn {
+  background-color: #405189;
+  color: white;
+  border: none;
+}
+.added-task {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0.3rem 0;
+}
+.added-task button {
+  height: 2rem;
+}
+.added-task input {
+  width: 10%;
+}
+.added-task label {
+  width: 60%;
+}
+.added-task button {
+  width: 20%;
+}
+.error-text {
+  font-size: smaller;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 0;
+  color: red;
+}
+.hidden {
+  display: none;
+}
