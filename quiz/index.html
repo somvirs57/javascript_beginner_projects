@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script async src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Quiz</title>
+  </head>
+  <body>
+    <div class="quiz-wrapper">
+      <!-- quiz start -->
+      <div class="game-start-container question-container">
+        <div class="game-start-text">
+          <h1 class="quiz-start-text w-fit">Welcome to the quiz !!</h1>
+          <div class="btn-container quiz-start-btn-cont w-fit">
+            <button class="btn check-btn quiz-start-btn">start</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- quiz -->
+      <div class="quiz-card hidden">
+        <div class="question-progress">
+          <p>
+            Question <span class="cur-question">1</span> of
+            <span class="total-question">5</span>
+          </p>
+        </div>
+        <div class="question-container">
+          <h1 class="question">A placeholder for question ?</h1>
+        </div>
+        <div class="options-container">
+          <ul>
+            <li>
+              <label for="opt_1" class="option-label" id="op_a"
+                ><span id="opt1" class="label-span"
+                  >Transition Between Three</span
+                >
+
+                <span class="position-absolute">A</span>
+              </label>
+            </li>
+            <li>
+              <label for="opt_2" class="option-label" id="op_b">
+                <span id="opt2" class="label-span"
+                  >Transition Between Three</span
+                >
+
+                <span class="position-absolute">B</span>
+              </label>
+            </li>
+            <li>
+              <label for="opt_3" class="option-label" id="op_c">
+                <span id="opt3" class="label-span"
+                  >Transition Between Three</span
+                >
+
+                <span class="position-absolute">C</span>
+              </label>
+            </li>
+            <li>
+              <label for="opt_4" class="option-label" id="op_d"
+                ><span id="opt4" class="label-span"
+                  >Transition Between Three</span
+                >
+                <!-- <input
+                  id="opt_4"
+                  type="radio"
+                  name="stp_1_select_option"
+                  value="Transition Between three"
+                  class="radio-input"
+                  checked=""
+                /> -->
+                <span class="position-absolute">D</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="quiz-progress">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="btn-container">
+          <button class="btn next-btn">Next</button>
+          <button class="btn submit-btn hidden">submit</button>
+        </div>
+      </div>
+      <!-- quiz end -->
+      <div class="game-over-container question-container hidden">
+        <div class="game-over-text">
+          <h1 class="question w-fit">Thank You</h1>
+          <br />
+          <p class="w-fit">
+            Your Score is: <span class="quiz-result-score">2</span> /
+            <span class="quiz-result-total"></span>
+          </p>
+          <div class="btn-container w-fit">
+            <button class="btn check-btn retake-btn">Retake</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
