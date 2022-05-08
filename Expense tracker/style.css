@@ -18,3 +18,46 @@ body {
   margin: 24px;
   padding: 24px;
 }
+
+.header {
+  display: flex;
+}
+.header-headings {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+}
+.header-profile {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.info {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+.info-add-new,
+.info-summary {
+  display: flex;
+  height: 20rem;
+  width: 30rem;
+  background-color: var(--white);
+}
+
+.detail {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.detail-category,
+.detail-recents {
+  display: flex;
+  height: 20rem;
+  width: 30rem;
+  background-color: var(--white);
+}

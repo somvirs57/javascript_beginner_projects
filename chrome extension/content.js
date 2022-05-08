@@ -12,13 +12,14 @@ const siteImages = document.getElementsByTagName('img');
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log(request, sender, sendResponse);
-  const response = { status: 'done' };
-  console.log(response);
-  sendResponse(response);
+
   if (request.task === 'iamsrk') {
     for (let i = 0; i < siteImages.length; i++) {
       const randImg = Math.floor(Math.random() * srk_images.length);
       siteImages[i].src = srk_images[randImg];
     }
   }
+
+  const response = { status: 'done' };
+  sendResponse(response);
 });
