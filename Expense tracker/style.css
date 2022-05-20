@@ -11,14 +11,20 @@
 
 body {
   font-family: 'Jost', sans-serif;
-  background-color: var(--background);
+  background-color: var(--gainsboro);
   color: var(--primary-color);
 }
+p {
+  margin: 0;
+}
+
 .container {
   margin: 24px;
   padding: 24px;
 }
-
+.hidden {
+  display: none;
+}
 .header {
   display: flex;
 }
@@ -46,6 +52,8 @@ body {
   height: 20rem;
   width: 30rem;
   background-color: var(--white);
+  border-radius: 20px;
+  padding: 1rem;
 }
 
 .detail {
@@ -57,7 +65,95 @@ body {
 .detail-category,
 .detail-recents {
   display: flex;
-  height: 20rem;
-  width: 30rem;
+  /* height: 20rem;
+  width: 30rem; */
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+.add-btn,
+.formGroup input[type='submit'] {
+  background-color: var(--torquoise);
+  border: none;
+  height: 35px;
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+.add-btn:hover,
+.formGroup input[type='submit']:hover {
+  background-color: darkcyan;
+}
+
+.del-btn {
+  background-color: var(--tomato);
+  border: none;
+  border-radius: 6px;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}
+.del-btn:hover{
+  background-color: red;
+
+}
+
+.active-tab {
+  background-color: var(--tomato);
+}
+.active-tab:hover {
+  background-color: brown;
+}
+#incomeAddForm {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.formGroup {
+  padding: 10px 0 10px 0;
+}
+input[type='text'],
+input[type='number'],
+select {
+  min-height: 20px;
+  padding: 5px;
+  border: 1px solid var(--torquoise);
+  border-radius: 6px;
+  outline: none;
+}
+
+.totalincome-value {
+  display: flex;
+  flex-direction: column;
+}
+.totalincome-value table {
+  max-width: 80%;
+  text-align: center;
+}
+.incomeBudgetCompare table {
+  width: 80%;
+  text-align: center;
+}
+
+.budget-table table tr td:nth-child(2) {
+  text-transform: capitalize;
+}
+
+.budget-table td {
+  text-align: center;
+}
+
+#incomeChart {
+  height: 480px !important;
+  width: 480px !important;
+  background-color: var(--white);
+  margin-bottom: 3rem !important;
+}
+
+#incBudCompareChart {
+  height: 380px !important;
+  width: 30rem !important;
   background-color: var(--white);
 }
