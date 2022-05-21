@@ -32,7 +32,6 @@ class Income {
   addIncome(newIncome, source) {
     //   instantiating new variables to be pushed into storage
     let newCatArr = [];
-    let newInc = 0;
 
     // get Latest id from last saved id
     const lastIncomeCatId = this.getLastCategoryId('incomeCategories');
@@ -45,25 +44,17 @@ class Income {
     };
     // getting stored values
     const storageIncomeCategories = this.getStorageItem('incomeCategories');
-    const storageIncome = this.getStorageItem('income');
     // categories
     if (storageIncomeCategories) {
       newCatArr = [...storageIncomeCategories, catObj];
     } else {
       newCatArr.push(catObj);
     }
-    // income
-    if (storageIncome) {
-      newInc = parseInt(storageIncome) + parseInt(newIncome);
-    } else {
-      newInc = newIncome;
-    }
+
     // changing obj income and categories
-    this.income = parseInt(newInc);
     this.incomeCategories = newCatArr;
 
-    // putting new income and categories into storage
-    localStorage.setItem('income', JSON.stringify(newInc));
+    // putting new categories into storage
     this.setStorageItem('incomeCategories', newCatArr);
     location.reload(); // to reload the page
   }
@@ -79,7 +70,6 @@ class Income {
   addBudget(newBudget, newCategory) {
     //   instantiating new variables to be pushed into storage
     let newCatArr = [];
-    let newBud = 0;
 
     // get Latest id from last saved id
     const lastBudgetCatId = this.getLastCategoryId('budgetCategories');
@@ -94,7 +84,6 @@ class Income {
 
     // getting stored values
     const storageBudgetCategories = this.getStorageItem('budgetCategories');
-    const storageBudget = this.getStorageItem('budget');
 
     // categories
     if (storageBudgetCategories) {
@@ -102,15 +91,8 @@ class Income {
     } else {
       newCatArr.push(catObj);
     }
-    // income
-    if (storageBudget) {
-      newBud = parseInt(storageBudget) + parseInt(newBudget);
-    } else {
-      newBud = newBudget;
-    }
 
     // changing obj categories
-    // this.budget = parseInt(newBud);
     this.budgetCategories = newCatArr;
 
     // putting new income and categories into storage

@@ -47,7 +47,7 @@ const quiz = [
 ];
 
 class Quiz {
-  constructor(quiz) {
+  constructor() {
     this.quiz = quiz;
 
     // Quiz Starting info
@@ -93,10 +93,8 @@ class Quiz {
     this.quizResultTotal = document.querySelector('.quiz-result-total');
     this.retakeBtn = document.querySelector('.retake-btn');
 
-    // handlers
-    this.quizStartBtn.handler = this.startQuiz.bind(this);
+    this.quizStartBtn.addEventListener('click', this.startQuiz.bind(this));
   }
-
   /* process */
   // start the quiz
   // add question to the screen, populate options and ready the options
@@ -104,33 +102,20 @@ class Quiz {
   // capture answer, check for answer and go to next question
   // repeat for all questions
   // show result and retake option on final screen
+  // retake will get the app to initial state
 
   startQuiz() {
     this.quizStartText.classList.add('hidden');
 
     this.quizCard.classList.remove('hidden');
-    console.log(this.quesCounter);
-
-    this.addQuestion(quiz[this.quesCounter], this.quiz.length);
+    this.addQuestion(this.quiz[this.quesCounter], this.quiz.length);
     this.progressBar.style.width = `${this.progress}%`;
 
     // used for retake option but better to add hidden class on these buttons
     this.submitBtn.classList.add('hidden');
     this.nextBtn.classList.remove('hidden');
   }
-
-  initiate() {
-    console.log('starting', this.quesCounter);
-    this.quizStartBtn.addEventListener('click', this.quizStartBtn.handler);
-  }
-
   addQuestion(ques, totalQues) {
-    this.options.forEach(op => {
-      if (op.classList.contains('option-active-label')) {
-        // remove selected option
-        op.classList.remove('option-active-label');
-      }
-    });
     this.quesText.textContent = ques.ques; //put ques, question no., total questions and options
     this.curQues.textContent = ques.id;
     this.totalQues.textContent = totalQues;
@@ -139,7 +124,22 @@ class Quiz {
     }
     this.quesCounter++; // increase counter for next question
   }
-
+  readyOptions() {
+    this.optionLabels.forEach(op => {
+      op.addEventListener('click', e => {
+        if (op.classList.contains('option-active-label')) {
+          op.classList.remove('option-active-label');
+        } else {
+          op.classList.add('option-active-label');
+          this.optionLabels.forEach(otherOp => {
+            if (otherOp.id !== op.id) {
+              otherOp.classList.remove('option-active-label');
+            }
+          });
+        }
+      });
+    });
+  }
   keyOptions() {
     document.addEventListener('keydown', e => {
       const keyCheck =
@@ -165,7 +165,6 @@ class Quiz {
       }
     });
   }
-
   selectOption(opt) {
     const checkId = `op_${opt.toLowerCase()}`;
     this.options.forEach(op => {
@@ -176,46 +175,17 @@ class Quiz {
       }
     });
   }
-  readyOptions() {
-    this.optionLabels.forEach(op => {
-      op.addEventListener('click', e => {
-        if (op.classList.contains('option-active-label')) {
-          op.classList.remove('option-active-label');
-        } else {
-          op.classList.add('option-active-label');
-          this.optionLabels.forEach(otherOp => {
-            if (otherOp.id !== op.id) {
-              otherOp.classList.remove('option-active-label');
-            }
-          });
-        }
-      });
-    });
-  }
   captureAnswer() {
-    // get quiz answer
-    // const selectedLabels = document.getElementsByClassName(
-    //   'option-active-label'
-    // );
     const selectedLabel = document.getElementsByClassName(
       'option-active-label'
     )[0];
-    // console.log(
-    //   selectedLabels,
-    //   selectedLabel,
-    //   selectedLabel.firstChild.textContent,
-    //   selectedLabel.children[0].innerText
-    //   // this.quiz[this.quesCounter - 1].ans
-    // );
-    // opportunity to show debuggin using console in the video
-
     if (selectedLabel) {
-      const selectedAnswer = selectedLabel.children[0].innerText;
+      const selectedAnswer = selectedLabel.children[0].innerText; //
       if (selectedAnswer == this.quiz[this.quesCounter - 1].ans) {
         this.quizScore++;
       }
     }
-    console.log(this.quizScore);
+    console.log(selectedLabel, this.quizScore);
   }
   nextQuestion() {
     if (this.quesCounter < this.quiz.length - 1) {
@@ -228,14 +198,12 @@ class Quiz {
     this.progress += this.progressStep;
     this.progressBar.style.width = `${this.progress}%`;
   }
-
   endQuiz() {
     this.quizCard.classList.add('hidden');
     this.gameOverScreen.classList.remove('hidden');
     this.quizResultScore.innerText = this.quizScore;
     this.quizResultTotal.innerText = this.quiz.length;
   }
-
   resetQuiz() {
     this.gameOverScreen.classList.add('hidden');
     this.quizStartText.classList.remove('hidden');
@@ -243,12 +211,9 @@ class Quiz {
     this.progressStep = 100 / this.quiz.length;
     this.progress = this.progressStep;
     this.quizScore = 0;
-
-    this.quizStartBtn.removeEventListener('click', this.quizStartBtn.handler);
-    this.initiate();
   }
+
   displayQuiz() {
-    this.initiate();
     this.readyOptions();
     this.keyOptions();
     this.nextBtn.addEventListener('click', () => {
@@ -265,5 +230,5 @@ class Quiz {
   }
 }
 
-const newQuiz = new Quiz(quiz);
-newQuiz.displayQuiz();
+const sample = new Quiz();
+sample.displayQuiz();

@@ -1,3 +1,11 @@
 - quiz for n no. of questions in form of multistep form
 - progress bar 
 - result at the end 
+
+
+Why class based approach: 
+- easy to read code
+- modularity 
+- easy to debug
+- can be reused
+- and many other
