@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script async type="module" src="script.js"></script>
     <!-- adding module will let us use modules in js file -->
     <link rel="stylesheet" href="style.css" />
@@ -13,7 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <title>Expense Tracker</title>
   </head>
   <body>
@@ -25,111 +25,249 @@
           <button class="add-btn active-tab" id="incomeBtn">Income</button>
         </div>
       </div>
-      <div class="info">
-        <div class="info-add-new">
-          <!-- add new income  -->
-          <div class="income-info-add">
-            <h3>Add New Income</h3>
-            <form action="" id="incomeAddForm">
-              <div class="formGroup">
-                <label for="">Income:</label>
-                <input
-                  type="number"
-                  id="newIncomeInput"
-                  placeholder="Enter your income"
-                />
+      <div class="element-container">
+        <!-- income container -->
+        <div class="income-container hidden">
+          <div class="info">
+            <div class="info-add-new">
+              <!-- add new income  -->
+              <div class="income-info-add">
+                <h3>Add New Income</h3>
+                <form action="" id="incomeAddForm">
+                  <div class="formGroup">
+                    <label for="">Income:</label>
+                    <input
+                      type="number"
+                      id="newIncomeInput"
+                      placeholder="Enter your income"
+                    />
+                  </div>
+                  <div class="formGroup">
+                    <label for="">Source:</label>
+                    <select name="" id="existingIncomeSourceInput">
+                      <option value="salary">Salary</option>
+                      <option value="youtube">Youtube</option>
+                    </select>
+                  </div>
+                  <p>or add a new source</p>
+                  <div class="formGroup">
+                    <label for="">Source:</label>
+                    <input
+                      type="text"
+                      id="newIncomeSourceInput"
+                      placeholder="Add New Source"
+                    />
+                  </div>
+                  <div class="formGroup">
+                    <input type="submit" value="submit" />
+                  </div>
+                </form>
               </div>
-              <div class="formGroup">
-                <label for="">Source:</label>
-                <select name="" id="existingIncomeSourceInput">
-                  <option value="salary">Salary</option>
-                  <option value="youtube">Youtube</option>
-                </select>
+              <!-- add new income  -->
+            </div>
+            <div class="info-summary">
+              <!-- income budget summary -->
+              <div class="income-info-summary">
+                <div class="income-budget-summary">
+                  <h3>Budget Plan</h3>
+                  <div class="budget-table">
+                    <table id="budgetTable">
+                      <thead>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody id="incomeBudgetTableBody">
+                        <tr>
+                          <td>
+                            <input type="text" id="budgetCategoryInput" />
+                          </td>
+                          <td><input type="number" id="budgetInput" /></td>
+                          <td>
+                            <button id="budgetAddBtn" class="add-btn">
+                              add
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-              <p>or add a new source</p>
-              <div class="formGroup">
-                <label for="">Source:</label>
-                <input
-                  type="text"
-                  id="newIncomeSourceInput"
-                  placeholder="Add New Source"
-                />
-              </div>
-              <div class="formGroup">
-                <input type="submit" value="submit" />
-              </div>
-            </form>
+              <!-- income budget summary -->
+            </div>
           </div>
-          <!-- add new income  -->
-        </div>
-        <div class="info-summary">
-          <!-- income budget summary -->
-          <div class="income-info-summary">
-            <div class="income-budget-summary">
-              <h3>Budget Plan</h3>
-              <div class="budget-table">
-                <table id="budgetTable">
-                  <thead>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    <th>Action</th>
-                  </thead>
-                  <tbody id="incomeBudgetTableBody">
+          <div class="detail">
+            <div class="detail-category">
+              <!-- income chart -->
+              <div class="income-details">
+                <div class="totalincome-value">
+                  <table>
+                    <tbody id="incomeChartTableBody">
+                      <tr>
+                        <th>Total Income:</th>
+                        <th><p id="incomeValue"></p></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <canvas id="incomeChart"></canvas>
+              </div>
+              <!-- income chart -->
+            </div>
+            <div class="detail-recents">
+              <!-- income budget compare -->
+              <div class="incomeBudgetCompare">
+                <table>
+                  <tbody id="budgetChartTableBody">
                     <tr>
-                      <td><input type="text" id="budgetCategoryInput" /></td>
-                      <td><input type="number" id="budgetInput" /></td>
-                      <td>
-                        <button id="budgetAddBtn" class="add-btn">add</button>
-                      </td>
+                      <th>Total Budget:</th>
+                      <th><span id="incomeBudgetValue"></span></th>
                     </tr>
                   </tbody>
                 </table>
+                <table>
+                  <tbody>
+                    <tr>
+                      <th>Estimated Savings:</th>
+                      <th><span id="estimatedSavingsValue"></span></th>
+                    </tr>
+                  </tbody>
+                </table>
+                <canvas id="incBudCompareChart"></canvas>
               </div>
+              <!-- income budget compare -->
             </div>
           </div>
-          <!-- income budget summary -->
         </div>
-      </div>
-      <div class="detail">
-        <div class="detail-category">
-          <!-- income chart -->
-          <div class="income-details">
-            <div class="totalincome-value">
+
+        <!-- expense container -->
+        <div class="expense-container hidden">
+          <div class="info">
+            <div class="info-add-new">
+              <!-- add new expense  -->
+              <div class="income-info-add">
+                <h3>Add New transaction</h3>
+                <form action="" id="expenseAddForm">
+                  <div class="expense-form-inputs">
+                    <div class="formGroup">
+                      <label for="">Expense:</label>
+                      <input
+                        type="number"
+                        id="newExpenseInput"
+                        placeholder="Enter amount"
+                      />
+                    </div>
+                    <div class="formGroup">
+                      <label for="">Tag:</label>
+                      <select name="" id="existingExpenseTagInput"></select>
+                    </div>
+                  </div>
+                  <div class="formGroup">
+                    <input type="submit" value="submit" />
+                  </div>
+                </form>
+              </div>
+              <!-- add new expense  -->
+            </div>
+            <div class="info-summary">
+              <!-- all expenses -->
+              <div class="all-expenses-div">
+                <h3>Latest Transactions</h3>
+                <div class="all-expenses">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>No.</th>
+                        <th>Tag</th>
+                        <th>Amount</th>
+                      </tr>
+                    </thead>
+                    <tbody id="allExpensesBody"></tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- all expenses -->
+            </div>
+          </div>
+          <div class="detail">
+            <div class="detail-expense-category">
+              <!-- total category expenses -->
+              <h3>Category Expenses</h3>
+              <div class="">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Expense</th>
+                    </tr>
+                  </thead>
+                  <tbody id="catExpensesList"></tbody>
+                </table>
+              </div>
+              <!-- total category expenses -->
+            </div>
+            <div class="detail-expense-recents">
+              <!-- expense chart -->
+              <canvas id="expenseChart"></canvas>
+              <!-- expense chart -->
+            </div>
+          </div>
+        </div>
+
+        <!-- summary container -->
+        <div class="summary-container">
+          <div class="info">
+            <div class="info-add-new">
+              <!-- summary budget  -->
+              <div class="income-info-add summary-info-add">
+                <h3>Budget Plan</h3>
+                <div class="summary-budget-table">
+                  <table>
+                    <thead>
+                      <th>Category</th>
+                      <th>Amount</th>
+                    </thead>
+                    <tbody id="summaryIncomeBudgetTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- summary budget  -->
+            </div>
+            <div class="info-summary summary-summary">
+              <!-- Category Expense -->
+              <h3>Category Expenses</h3>
               <table>
-                <tbody id="incomeChartTableBody">
-                  <tr>
-                    <th>Total Income:</th>
-                    <th><p id="incomeValue"></p></th>
-                  </tr>
-                </tbody>
-              </table>
+                  <thead>
+                    <tr>
+                      <th>Category</th>
+                      <th>Expense</th>
+                    </tr>
+                  </thead>
+                  <tbody id="summaryCatExpensesList"></tbody>
+                </table>
+              <!-- Category Expense -->
+
+              <!-- savings -->
+                <div class="summary-saving"><h3>Total Savings</h3><span id="summarySpan"></span></div>
+              <!-- savings -->
             </div>
-            <canvas id="incomeChart"></canvas>
           </div>
-          <!-- income chart -->
-        </div>
-        <div class="detail-recents">
-          <!-- income budget compare -->
-          <div class="incomeBudgetCompare">
-            <table>
-              <tbody id="budgetChartTableBody">
-                <tr>
-                  <th>Total Budget:</th>
-                  <th><span id="incomeBudgetValue"></span></th>
-                </tr>
-              </tbody>
-            </table>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Estimated Savings:</th>
-                  <th><span id="estimatedSavingsValue"></span></th>
-                </tr>
-              </tbody>
-            </table>
-            <canvas id="incBudCompareChart"></canvas>
+          <div class="detail">
+            <div class="detail-summary-category">
+              <!-- summary income chart -->
+              <h3>Income Chart</h3>
+              <canvas id="SummaryIncomeChart"></canvas>
+              <!-- summary income chart -->
+            </div>
+            <div class="detail-summary-recents">
+              <h3>Expense Chart</h3>
+              <!-- summary expense chart -->
+              <canvas id="SummaryExpenseChart"></canvas>
+              <!-- summary expense chart -->
+            </div>
           </div>
-          <!-- income budget compare -->
         </div>
       </div>
     </div>

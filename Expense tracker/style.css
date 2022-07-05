@@ -157,3 +157,69 @@ select {
   width: 30rem !important;
   background-color: var(--white);
 }
+
+
+/* EXpenses */
+.expense-form-inputs{
+  display: flex;
+  gap:20px;
+}
+.all-expenses-div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.detail-expense-category, .detail-expense-recents,.detail-summary-category, .detail-summary-recents{
+  display: flex;
+  height: 20rem;
+  width: 30rem;
+  background-color: var(--white);
+  border-radius: 20px;
+  padding: 1rem;
+  flex-direction: column;
+}
+.exhaustionDiv,.innerexhaustionDiv{
+  height:1.2rem;
+  border-radius: 8px;
+  width:20rem;
+}
+.exhaustionDiv{
+  border:1px solid black;
+}
+.innerexhaustionDiv{
+  background-color: var(--torquoise);
+}
+.all-expenses{
+  overflow-y: scroll;
+}
+.all-expenses table{
+  width:95%;
+  text-align: center;
+}
+.detail-expense-recents,.detail-summary-category, .detail-summary-recents{
+  height:35rem;
+}
+
+/* summary */
+
+.summary-info-add{
+  width:100%;
+  text-align: center;
+}
+.summary-budget-table table{
+  width:95%;
+}
+.summary-summary{
+  display: flex;
+  flex-direction: column;
+}
+.summary-saving{
+  margin-top:3rem;
+  display: flex;
+  align-items: center;
+  gap:30px;
+}
+.summary-saving span{
+  font-weight: 700;
+}

@@ -1,12 +1,8 @@
 Expense Tracker: 
-- track one thing like a project from start to finish.
 - add expense and income manually
 - add a tag to categorize
-- make categories and allocate some amount in it 
-	as a monthly spend and it will track how much you have
+- make categories and allocate some amount in it and it will track how much you have
 	already spent and how much more you can spend. 
--  put upcoming expenses for the month or maybe recurring 
-	expenses
 
 budget planner:
 - add income 
@@ -14,11 +10,7 @@ budget planner:
 - reduce budget if expense done from this category
 
 - Summary page: 
-	- start data, end date, start bal. ending balance, 
 	  incoming and outgoing money in that month.
-	- monthly transactions
-	- 
 
 challenges: 
-- keep user data seperate 
 - graphs and other visual tools
