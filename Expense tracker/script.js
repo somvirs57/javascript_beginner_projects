@@ -91,7 +91,6 @@ class Tracker {
     const savingSpan = document.getElementById('summarySpan');
     savingSpan.textContent = saving;
   }
-
   initiate() {
     console.log('initiating main tracker');
     this.incomeObj.initiate();

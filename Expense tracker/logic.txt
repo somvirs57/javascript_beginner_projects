@@ -1,10 +1,9 @@
 Expense Tracker: 
-- add expense and income manually
+- add expense manually
 - add a tag to categorize
-- make categories and allocate some amount in it and it will track how much you have
-	already spent and how much more you can spend. 
+- track how much you have already spent and how much more you can spend. 
 
-budget planner:
+budget/income planner:
 - add income 
 - add budget for each category
 - reduce budget if expense done from this category
